@@ -33,4 +33,6 @@ elseif("${gRPC_GFLAGS_PROVIDER}" STREQUAL "package")
     set(_gRPC_GFLAGS_INCLUDE_DIR ${GFLAGS_INCLUDE_DIR})
   endif()
   set(_gRPC_FIND_GFLAGS "if(NOT gflags_FOUND)\n  find_package(gflags CONFIG)\nendif()")
+elseif(gRPC_GFLAGS_PROVIDER STREQUAL "none")
+  # gflags is a test-only dependency and can be avoided if we're not building tests.
 endif()
